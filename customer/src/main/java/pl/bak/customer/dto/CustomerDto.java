@@ -1,6 +1,11 @@
 package pl.bak.customer.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+import java.util.Objects;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CustomerDto {
     private String firstName;
     private String surname;
@@ -37,5 +42,18 @@ public class CustomerDto {
 
     public void setCreditDto(CreditDto creditDto) {
         this.creditDto = creditDto;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CustomerDto that = (CustomerDto) o;
+        return Objects.equals(firstName, that.firstName) && Objects.equals(surname, that.surname) && Objects.equals(pesel, that.pesel) && Objects.equals(creditDto, that.creditDto);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, surname, pesel, creditDto);
     }
 }

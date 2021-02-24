@@ -2,6 +2,7 @@ package pl.bak.product.domain;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pl.bak.product.domain.dao.CreditRepository;
 import pl.bak.product.domain.dao.ProductRepository;
 import pl.bak.product.dto.ProductDto;
@@ -22,14 +23,17 @@ public class ProductService {
         this.modelMapper = modelMapper;
     }
 
-    public void saveProduct(ProductDto productDto){
+    @Transactional
+    public ProductDto saveProduct(ProductDto productDto){
         Product product = modelMapper.map(productDto, Product.class);
 
         int id = productDto.getCreditDto().getId();
         creditRepository.findById(id)
                 .ifPresent(product::setCredit);
 
-        productRepository.save(product);
+        Product save = productRepository.save(product);
+
+        return modelMapper.map(save, ProductDto.class);
     }
 
     public List<ProductDto> getAll(){

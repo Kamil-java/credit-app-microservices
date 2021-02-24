@@ -2,6 +2,7 @@ package pl.bak.customer.domain;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pl.bak.customer.domain.dao.CreditRepository;
 import pl.bak.customer.domain.dao.CustomerRepository;
 import pl.bak.customer.dto.CustomerDto;
@@ -23,14 +24,16 @@ public class CustomerService {
         this.modelMapper = modelMapper;
     }
 
+    @Transactional
     public Optional<Customer> saveCustomer(CustomerDto customerDto) {
-        if (customerRepository.findByPesel(customerDto.getPesel()).isPresent()){
+        int id = customerDto.getCreditDto().getId();
+
+        if (customerRepository.findByPesel(customerDto.getPesel()).isPresent()) {
+            creditRepository.deleteById(id);
             return Optional.empty();
         }
 
         Customer customer = modelMapper.map(customerDto, Customer.class);
-
-        int id = customerDto.getCreditDto().getId();
 
         creditRepository.findById(id)
                 .ifPresent(customer::setCredit);
@@ -40,12 +43,13 @@ public class CustomerService {
         return Optional.of(customer);
     }
 
-    public List<CustomerDto> getAll(){
-        List<Customer> products = customerRepository.findAll();
+    public List<CustomerDto> getAll() {
+        List<Customer> customers = customerRepository.findAll();
 
-        return products.stream()
-                .map(product -> modelMapper.map(product, CustomerDto.class))
+        return customers.stream()
+                .map(customer -> modelMapper.map(customer, CustomerDto.class))
                 .collect(Collectors.toList());
     }
+
 
 }

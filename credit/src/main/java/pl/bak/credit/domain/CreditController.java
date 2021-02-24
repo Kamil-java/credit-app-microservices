@@ -1,6 +1,7 @@
 package pl.bak.credit.domain;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.server.ResponseStatusException;
@@ -8,6 +9,7 @@ import pl.bak.credit.domain.uri.UrlData;
 import pl.bak.credit.dto.CreditDto;
 import pl.bak.credit.dto.MainDto;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,7 +23,7 @@ public class CreditController {
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public Integer CreateCredit(@RequestBody MainDto mainDto) {
+    public Integer createCredit(@RequestBody @Valid MainDto mainDto) {
         return creditService.createCredit(mainDto);
     }
 

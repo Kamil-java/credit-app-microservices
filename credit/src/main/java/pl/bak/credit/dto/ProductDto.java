@@ -1,13 +1,14 @@
 package pl.bak.credit.dto;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import java.util.Objects;
 
 public class ProductDto {
-    @NotBlank
+    @NotBlank(message = "product must have name")
     private String productName;
 
-    @NotNull
+    @Positive(message = "value must be positive")
     private int value;
 
     private CreditDto creditDto = new CreditDto();
@@ -34,5 +35,19 @@ public class ProductDto {
 
     public void setCreditDto(CreditDto creditDto) {
         this.creditDto = creditDto;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProductDto that = (ProductDto) o;
+        return value == that.value && Objects.equals(productName, that.productName) && Objects.equals(creditDto, that.creditDto);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(productName, value, creditDto);
     }
 }

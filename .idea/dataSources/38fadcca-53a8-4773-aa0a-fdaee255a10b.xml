@@ -981,6 +981,7 @@ U/10
     </sequence>
     <table id="33" parent="15" name="credit">
       <ObjectId>18021</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>postgres</Owner>
       <StateNumber>1420</StateNumber>
     </table>
@@ -998,6 +999,7 @@ U/10
     </sequence>
     <table id="36" parent="16" name="customer">
       <ObjectId>18006</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>postgres</Owner>
       <StateNumber>1415</StateNumber>
     </table>
@@ -1015,6 +1017,7 @@ U/10
     </sequence>
     <table id="39" parent="19" name="product">
       <ObjectId>18031</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>postgres</Owner>
       <StateNumber>1420</StateNumber>
     </table>

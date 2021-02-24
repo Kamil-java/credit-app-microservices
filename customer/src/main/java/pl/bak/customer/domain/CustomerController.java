@@ -5,6 +5,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import pl.bak.customer.dto.CustomerDto;
+import pl.bak.customer.model.Customer;
 
 import java.util.List;
 
@@ -21,8 +22,8 @@ public class CustomerController {
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public void createCustomer(@RequestBody CustomerDto customerDto){
-        customerService.saveCustomer(customerDto)
+    public Customer createCustomer(@RequestBody CustomerDto customerDto){
+       return customerService.saveCustomer(customerDto)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.CONFLICT));
     }
 

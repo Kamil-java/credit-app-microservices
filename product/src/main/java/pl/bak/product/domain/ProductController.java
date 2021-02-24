@@ -22,8 +22,8 @@ public class ProductController {
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
     @ResponseStatus(HttpStatus.CREATED)
-    public void createProduct(@RequestBody ProductDto productDto) {
-        productService.saveProduct(productDto);
+    public ProductDto createProduct(@RequestBody ProductDto productDto) {
+        return productService.saveProduct(productDto);
     }
 
     @GetMapping("/all")
