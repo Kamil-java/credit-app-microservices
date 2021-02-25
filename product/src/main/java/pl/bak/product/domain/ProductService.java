@@ -26,6 +26,7 @@ public class ProductService {
     @Transactional
     public ProductDto saveProduct(ProductDto productDto){
         Product product = modelMapper.map(productDto, Product.class);
+        product.setId(null);
 
         int id = productDto.getCreditDto().getId();
         creditRepository.findById(id)

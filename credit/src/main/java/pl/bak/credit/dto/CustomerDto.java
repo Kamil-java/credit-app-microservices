@@ -1,10 +1,12 @@
 package pl.bak.credit.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.hibernate.validator.constraints.pl.PESEL;
 
 import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CustomerDto {
     @NotBlank(message = "customer must have a first name")
     private String firstName;

@@ -6,15 +6,15 @@ import javax.validation.Valid;
 import java.util.Objects;
 
 public class MainDto {
-    @JsonProperty("Credit")
+    @JsonProperty("credit")
     @Valid
     private CreditDto creditDto;
 
-    @JsonProperty("Customer")
+    @JsonProperty("customer")
     @Valid
     private CustomerDto customerDto;
 
-    @JsonProperty("Product")
+    @JsonProperty("product")
     @Valid
     private ProductDto productDto;
 

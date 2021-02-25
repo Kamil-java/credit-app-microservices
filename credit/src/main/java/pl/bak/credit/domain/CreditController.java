@@ -8,6 +8,7 @@ import org.springframework.web.server.ResponseStatusException;
 import pl.bak.credit.domain.uri.UrlData;
 import pl.bak.credit.dto.CreditDto;
 import pl.bak.credit.dto.MainDto;
+import pl.bak.credit.model.Credit;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -23,8 +24,9 @@ public class CreditController {
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public Integer createCredit(@RequestBody @Valid MainDto mainDto) {
-        return creditService.createCredit(mainDto);
+    public Credit createCredit(@RequestBody @Valid MainDto mainDto) {
+        return creditService.createCredit(mainDto)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST));
     }
 
     @GetMapping("/all")

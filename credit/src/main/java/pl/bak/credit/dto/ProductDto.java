@@ -1,9 +1,12 @@
 package pl.bak.credit.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
 import java.util.Objects;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProductDto {
     @NotBlank(message = "product must have name")
     private String productName;

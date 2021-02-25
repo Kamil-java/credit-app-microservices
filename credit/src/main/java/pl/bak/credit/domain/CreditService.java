@@ -3,7 +3,6 @@ package pl.bak.credit.domain;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 import pl.bak.credit.domain.dao.CreditRepository;
 import pl.bak.credit.domain.uri.UrlData;
@@ -14,10 +13,7 @@ import pl.bak.credit.dto.ProductDto;
 import pl.bak.credit.error.handler.ErrorHandler;
 import pl.bak.credit.model.Credit;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 
 @Service
@@ -36,7 +32,7 @@ public class CreditService {
     }
 
 
-    public Integer createCredit(MainDto mainDto) {
+    public Optional<Credit> createCredit(MainDto mainDto) {
 
         CreditDto creditDto = mainDto.getCreditDto();
         Credit credit = creditRepository.save(modelMapper.map(creditDto, Credit.class));
@@ -53,7 +49,7 @@ public class CreditService {
         modelMapper.map(credit, productDto.getCreditDto());
         restTemplate.postForObject(productURL, productDto, String.class);
 
-        return credit.getId();
+        return Optional.of(credit);
     }
 
     public List<MainDto> getAll() {
@@ -76,9 +72,15 @@ public class CreditService {
 
                 mainDto.setCreditDto(modelMapper.map(credit, CreditDto.class));
 
-                customers.forEach(mainDto::setCustomerDto);
+                customers.forEach(customerDto -> {
+                    customerDto.setCreditDto(null);
+                    mainDto.setCustomerDto(customerDto);
+                });
 
-                products.forEach(mainDto::setProductDto);
+                products.forEach(productDto -> {
+                    productDto.setCreditDto(null);
+                    mainDto.setProductDto(productDto);
+                });
 
                 mainDtos.add(mainDto);
             });
