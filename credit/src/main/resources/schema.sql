@@ -1,4 +1,4 @@
-CREATE SCHEMA IF NOT EXISTS credit_db AUTHORIZATION postgres;
+CREATE SCHEMA IF NOT EXISTS credit_db;
 
 -- TODO delete this if we want persist data
 DROP TABLE IF EXISTS credit_db.credit CASCADE;

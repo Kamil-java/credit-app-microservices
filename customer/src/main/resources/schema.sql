@@ -1,4 +1,5 @@
-CREATE SCHEMA IF NOT EXISTS customer_db AUTHORIZATION postgres;
+CREATE SCHEMA IF NOT EXISTS credit_db;
+CREATE SCHEMA IF NOT EXISTS customer_db;
 
 -- TODO delete this if we want persist data
 DROP TABLE IF EXISTS customer_db.customer CASCADE;
