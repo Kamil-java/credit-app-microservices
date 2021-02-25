@@ -789,7 +789,7 @@ false Zulu
     <database id="2" parent="1" name="CreditApp">
       <ObjectId>16394</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1430</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2749</IntrospectionStateNumber>
       <Current>1</Current>
     </database>
     <database id="3" parent="1" name="postgres">
@@ -844,13 +844,13 @@ false Zulu
       <ObjectId>16396</ObjectId>
       <StateNumber>500</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1425</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2676</IntrospectionStateNumber>
     </schema>
     <schema id="16" parent="2" name="customer_db">
       <ObjectId>16395</ObjectId>
       <StateNumber>513</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1426</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2750</IntrospectionStateNumber>
     </schema>
     <schema id="17" parent="2" name="information_schema">
       <ObjectId>13158</ObjectId>
@@ -874,7 +874,7 @@ U/10
       <ObjectId>16397</ObjectId>
       <StateNumber>519</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1431</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2747</IntrospectionStateNumber>
     </schema>
     <extension id="20" parent="2" name="plpgsql">
       <ObjectId>13428</ObjectId>
@@ -974,70 +974,56 @@ U/10
       <Type>index</Type>
     </access-method>
     <sequence id="32" parent="15" name="credit_sequence">
-      <ObjectId>17986</ObjectId>
+      <ObjectId>20194</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1405</StateNumber>
+      <StateNumber>2536</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
     <table id="33" parent="15" name="credit">
-      <ObjectId>18021</ObjectId>
+      <ObjectId>20196</ObjectId>
       <Outdated>1</Outdated>
       <Owner>postgres</Owner>
-      <StateNumber>1420</StateNumber>
+      <StateNumber>2537</StateNumber>
     </table>
     <sequence id="34" parent="16" name="credit_sequence">
-      <ObjectId>18004</ObjectId>
+      <ObjectId>20374</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1412</StateNumber>
+      <StateNumber>2735</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <sequence id="35" parent="16" name="customer_sequence">
-      <ObjectId>17615</ObjectId>
+    <table id="35" parent="16" name="customer">
+      <ObjectId>20376</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1199</StateNumber>
-      <DataType>bigint|0s</DataType>
-    </sequence>
-    <table id="36" parent="16" name="customer">
-      <ObjectId>18006</ObjectId>
-      <Outdated>1</Outdated>
-      <Owner>postgres</Owner>
-      <StateNumber>1415</StateNumber>
+      <StateNumber>2738</StateNumber>
     </table>
-    <sequence id="37" parent="19" name="credit_sequence">
-      <ObjectId>18029</ObjectId>
+    <sequence id="36" parent="19" name="credit_sequence">
+      <ObjectId>20359</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1418</StateNumber>
+      <StateNumber>2730</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <sequence id="38" parent="19" name="product_sequence">
-      <ObjectId>17642</ObjectId>
+    <table id="37" parent="19" name="product">
+      <ObjectId>20361</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1210</StateNumber>
-      <DataType>bigint|0s</DataType>
-    </sequence>
-    <table id="39" parent="19" name="product">
-      <ObjectId>18031</ObjectId>
-      <Outdated>1</Outdated>
-      <Owner>postgres</Owner>
-      <StateNumber>1420</StateNumber>
+      <StateNumber>2732</StateNumber>
     </table>
-    <column id="40" parent="33" name="id">
+    <column id="38" parent="33" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1417</StateNumber>
+      <StateNumber>2537</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="41" parent="33" name="credit_name">
+    <column id="39" parent="33" name="credit_name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1417</StateNumber>
+      <StateNumber>2537</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="42" parent="33" name="credit_pkey">
-      <ObjectId>18027</ObjectId>
-      <StateNumber>1417</StateNumber>
+    <index id="40" parent="33" name="credit_pkey">
+      <ObjectId>20202</ObjectId>
+      <StateNumber>2537</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1045,44 +1031,44 @@ U/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="43" parent="33" name="credit_pkey">
-      <ObjectId>18028</ObjectId>
-      <StateNumber>1417</StateNumber>
+    <key id="41" parent="33" name="credit_pkey">
+      <ObjectId>20203</ObjectId>
+      <StateNumber>2537</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>credit_pkey</UnderlyingIndexName>
     </key>
-    <column id="44" parent="36" name="credit_id">
+    <column id="42" parent="35" name="credit_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1413</StateNumber>
+      <StateNumber>2736</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="45" parent="36" name="first_name">
+    <column id="43" parent="35" name="first_name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1413</StateNumber>
+      <StateNumber>2736</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="46" parent="36" name="pesel">
+    <column id="44" parent="35" name="pesel">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1413</StateNumber>
+      <StateNumber>2736</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="47" parent="36" name="surname">
+    <column id="45" parent="35" name="surname">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1413</StateNumber>
+      <StateNumber>2736</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="48" parent="36" name="customer_pkey">
-      <ObjectId>18012</ObjectId>
-      <StateNumber>1413</StateNumber>
+    <index id="46" parent="35" name="customer_pkey">
+      <ObjectId>20382</ObjectId>
+      <StateNumber>2736</StateNumber>
       <ColNames>credit_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1090,9 +1076,9 @@ U/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <index id="49" parent="36" name="customer_pesel_unique">
-      <ObjectId>18014</ObjectId>
-      <StateNumber>1414</StateNumber>
+    <index id="47" parent="35" name="customer_pesel_unique">
+      <ObjectId>20384</ObjectId>
+      <StateNumber>2737</StateNumber>
       <ColNames>pesel</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
@@ -1100,43 +1086,43 @@ U/10
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <key id="50" parent="36" name="customer_pkey">
-      <ObjectId>18013</ObjectId>
-      <StateNumber>1413</StateNumber>
+    <key id="48" parent="35" name="customer_pkey">
+      <ObjectId>20383</ObjectId>
+      <StateNumber>2736</StateNumber>
       <ColNames>credit_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>customer_pkey</UnderlyingIndexName>
     </key>
-    <key id="51" parent="36" name="customer_pesel_unique">
-      <ObjectId>18015</ObjectId>
-      <StateNumber>1414</StateNumber>
+    <key id="49" parent="35" name="customer_pesel_unique">
+      <ObjectId>20385</ObjectId>
+      <StateNumber>2737</StateNumber>
       <ColNames>pesel</ColNames>
       <UnderlyingIndexName>customer_pesel_unique</UnderlyingIndexName>
     </key>
-    <column id="52" parent="39" name="credit_id">
+    <column id="50" parent="37" name="credit_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1419</StateNumber>
+      <StateNumber>2731</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="53" parent="39" name="product_name">
+    <column id="51" parent="37" name="product_name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1419</StateNumber>
+      <StateNumber>2731</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="54" parent="39" name="value">
+    <column id="52" parent="37" name="value">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1419</StateNumber>
+      <StateNumber>2731</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="55" parent="39" name="product_pkey">
-      <ObjectId>18037</ObjectId>
-      <StateNumber>1419</StateNumber>
+    <index id="53" parent="37" name="product_pkey">
+      <ObjectId>20367</ObjectId>
+      <StateNumber>2731</StateNumber>
       <ColNames>credit_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1144,23 +1130,12 @@ U/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="56" parent="39" name="product_pkey">
-      <ObjectId>18038</ObjectId>
-      <StateNumber>1419</StateNumber>
+    <key id="54" parent="37" name="product_pkey">
+      <ObjectId>20368</ObjectId>
+      <StateNumber>2731</StateNumber>
       <ColNames>credit_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>product_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="57" parent="39" name="fk874v8exweavn7fp1c74ik3afa">
-      <ObjectId>18039</ObjectId>
-      <StateNumber>1420</StateNumber>
-      <ColNames>credit_id</ColNames>
-      <RefTableId>18021</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefSchemaName>credit_db</RefSchemaName>
-      <RefTableName>credit</RefTableName>
-      <RefKeyName>credit_pkey</RefKeyName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
   </database-model>
 </dataSource>
