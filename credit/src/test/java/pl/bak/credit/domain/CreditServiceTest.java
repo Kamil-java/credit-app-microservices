@@ -6,16 +6,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.client.RestTemplate;
 import pl.bak.credit.app.body.test.BodyToTestProvider;
 import pl.bak.credit.domain.dao.CreditRepository;
-import pl.bak.credit.domain.uri.UrlData;
+import pl.bak.credit.domain.uri.URLData;
 import pl.bak.credit.dto.CustomerDto;
 import pl.bak.credit.dto.MainDto;
 import pl.bak.credit.dto.ProductDto;
-import pl.bak.credit.error.handler.ErrorHandler;
 import pl.bak.credit.model.Credit;
 
 import java.util.ArrayList;
@@ -54,8 +51,8 @@ class CreditServiceTest {
         given(creditRepository.save(any(Credit.class))).willReturn(getCredit());
 
         //when
-        when(restTemplate.postForObject(UrlData.customerCreateURL, getCustomerDto(), String.class)).thenReturn(null);
-        when(restTemplate.postForObject(UrlData.productCreateURL, getProductDto(), String.class)).thenReturn(null);
+        when(restTemplate.postForObject(URLData.customerCreateURL, getCustomerDto(), String.class)).thenReturn(null);
+        when(restTemplate.postForObject(URLData.productCreateURL, getProductDto(), String.class)).thenReturn(null);
         Optional<Credit> credit = creditService.createCredit(bodyToTestProvider.prepareMainDto());
 
         //then
@@ -75,8 +72,8 @@ class CreditServiceTest {
         given(creditRepository.findAll()).willReturn(List.of(getCredit()));
 
         //when
-        when(restTemplate.getForObject(UrlData.customerGetURL, CustomerDto[].class)).thenReturn(arrayCustomer());
-        when(restTemplate.getForObject(UrlData.productGetURL, ProductDto[].class)).thenReturn(arrayProduct());
+        when(restTemplate.getForObject(URLData.customerGetURL, CustomerDto[].class)).thenReturn(arrayCustomer());
+        when(restTemplate.getForObject(URLData.productGetURL, ProductDto[].class)).thenReturn(arrayProduct());
         List<MainDto> all = creditService.getAll();
 
         //then

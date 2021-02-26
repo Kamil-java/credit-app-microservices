@@ -1,6 +1,6 @@
 package pl.bak.credit.domain.uri;
 
-public class UrlData {
+public class URLData {
     public static final String customerCreateURL = "http://customer:8081/customer/create";
     public static final String customerGetURL = "http://customer:8081/customer/all";
 

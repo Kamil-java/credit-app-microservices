@@ -1,7 +1,7 @@
 CREATE SCHEMA IF NOT EXISTS credit_db;
 CREATE SCHEMA IF NOT EXISTS customer_db;
 
--- TODO delete this if we want persist data
+-- delete this if we want persist data
 DROP TABLE IF EXISTS customer_db.customer CASCADE;
 DROP SEQUENCE IF EXISTS customer_db.credit_sequence;
 
