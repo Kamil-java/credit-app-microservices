@@ -1,8 +1,8 @@
 # Credit-App-microservices
 * [General info](#general-info)
-* [Technological Stack](#tech)
+* [Technological Stack](#technological-stack)
 * [Endpoints](#endpoints)
-* [Strat up Docker container](#docker)
+* [Strat up Docker container](#strat-up-docker-container)
 
 ## General info
 the application consists of three smaller applications which makes it an application in a distributed structure.
