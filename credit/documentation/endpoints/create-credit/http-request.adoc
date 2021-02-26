@@ -1,0 +1,9 @@
+[source,http,options="nowrap"]
+----
+POST /credit/create HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 267
+Host: localhost:8080
+
+{"credit":{"id":1,"creditName":"Credit-1"},"customer":{"firstName":"Customer-1","surname":"C-Surname-1","pesel":"12345678910","creditDto":{"id":1,"creditName":"Credit-1"}},"product":{"productName":"Product-1","value":200,"creditDto":{"id":1,"creditName":"Credit-1"}}}
+----

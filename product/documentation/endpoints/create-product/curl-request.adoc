@@ -1,0 +1,6 @@
+[source,bash]
+----
+$ curl 'http://localhost:8080/product/create' -i -X POST \
+    -H 'Content-Type: application/json;charset=UTF-8' \
+    -d '{"id":1,"productName":"Product-1","value":200,"creditDto":{"id":1,"creditName":"Credit-1"}}'
+----

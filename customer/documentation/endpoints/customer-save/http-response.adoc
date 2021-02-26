@@ -1,0 +1,8 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 201 Created
+Content-Type: application/json
+Content-Length: 93
+
+{"id":1,"firstName":"Customer-1","surname":"C-Surname-1","pesel":"12345678910","credit":null}
+----

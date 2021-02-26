@@ -1,0 +1,5 @@
+[source,bash]
+----
+$ echo '{"id":1,"productName":"Product-1","value":200,"creditDto":{"id":1,"creditName":"Credit-1"}}' | http POST 'http://localhost:8080/product/create' \
+    'Content-Type:application/json;charset=UTF-8'
+----

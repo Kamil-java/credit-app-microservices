@@ -1,0 +1,8 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 201 Created
+Content-Type: application/json
+Content-Length: 91
+
+{"id":1,"productName":"Product-1","value":200,"creditDto":{"id":1,"creditName":"Credit-1"}}
+----
