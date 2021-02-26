@@ -2,6 +2,7 @@
 * [General info](#general-info)
 * [Technological Stack](#tech)
 * [Endpoints](#endpoints)
+* [Strat up Docker container](#docker)
 
 ## General info
 the application consists of three smaller applications which makes it an application in a distributed structure.
