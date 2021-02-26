@@ -70,3 +70,6 @@ Customer -> POST - http://localhost:8080/product/create
 Customer -> GET - http://localhost:8080/product/all 
 ```
 [Detailed documentation - get all customer](https://github.com/Kamil-java/credit-app-microservices/tree/master/product/documentation/endpoints/get-list-of-products)
+
+## Strat up Docker container
+* All we have to do is list <b>docker-compose up --build</b> in the root directory of the whole project. The application will create the database itself and use the containers / or images created by us to create it.
