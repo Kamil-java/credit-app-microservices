@@ -48,7 +48,7 @@ class CreditControllerTest {
     private BodyToTestProvider bodyToTestProvider;
 
     @Test
-    void createCredit() throws Exception {
+    void shouldCreateNewCredit() throws Exception {
         //given
         given(creditService.createCredit(any(MainDto.class))).willReturn(Optional.ofNullable(bodyToTestProvider.prepareCredit()));
 
@@ -78,7 +78,7 @@ class CreditControllerTest {
     }
 
     @Test
-    void getCredits() throws Exception {
+    void shouldReturnAllCreditsProductsAndCustomers() throws Exception {
         //given
         given(creditService.getAll()).willReturn(List.of(mainDto()));
 

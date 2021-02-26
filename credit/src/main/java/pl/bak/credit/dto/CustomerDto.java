@@ -15,8 +15,7 @@ public class CustomerDto {
     private String surname;
 
     @NotBlank(message = "customer must have a pesel")
-    //TODO
-//    @PESEL(message = "pesel must be at least 11 digits long")
+    @PESEL(message = "pesel must be at least 11 digits long")
     private String pesel;
 
     private CreditDto creditDto = new CreditDto();

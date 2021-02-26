@@ -22,13 +22,10 @@ public class CreditService {
     private final ModelMapper modelMapper;
     private final RestTemplate restTemplate;
 
-    public CreditService(CreditRepository creditRepository, ModelMapper modelMapper, RestTemplateBuilder restTemplateBuilder) {
+    public CreditService(CreditRepository creditRepository, ModelMapper modelMapper, RestTemplate restTemplate) {
         this.creditRepository = creditRepository;
         this.modelMapper = modelMapper;
-        this.restTemplate = restTemplateBuilder
-                .errorHandler(new ErrorHandler())
-                .build();
-
+        this.restTemplate = restTemplate;
     }
 
 

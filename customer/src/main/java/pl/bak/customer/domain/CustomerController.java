@@ -7,6 +7,7 @@ import org.springframework.web.server.ResponseStatusException;
 import pl.bak.customer.dto.CustomerDto;
 import pl.bak.customer.model.Customer;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -22,7 +23,7 @@ public class CustomerController {
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public Customer createCustomer(@RequestBody CustomerDto customerDto){
+    public Customer createCustomer(@RequestBody @Valid CustomerDto customerDto){
        return customerService.saveCustomer(customerDto)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.CONFLICT));
     }

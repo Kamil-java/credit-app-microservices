@@ -2,6 +2,7 @@ package pl.bak.customer.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import org.hibernate.validator.constraints.pl.PESEL;
 
 import java.util.Objects;
 
@@ -9,6 +10,8 @@ import java.util.Objects;
 public class CustomerDto {
     private String firstName;
     private String surname;
+
+    @PESEL
     private String pesel;
     private CreditDto creditDto;
 

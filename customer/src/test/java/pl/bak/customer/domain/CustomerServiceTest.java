@@ -47,7 +47,7 @@ class CustomerServiceTest {
     void shouldSaveCustomerIfPeselDoesntExistAndTheOtherwiseShouldReturnOptionalEmpty() {
         //given
         String peselDoesntExist = "098765432101";
-        String peselExist = "12345678910";
+        String peselExist = "55030101193";
         given(customerRepository.findByPesel(peselDoesntExist)).willReturn(Optional.empty());
         given(customerRepository.findByPesel(peselExist)).willReturn(Optional.of(new Customer()));
         given(creditRepository.findById(1)).willReturn(Optional.of(bodyToTestProvider.prepareCredit()));

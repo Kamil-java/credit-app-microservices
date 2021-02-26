@@ -15,7 +15,7 @@ public class BodyToTestProvider {
         customer.setId(1);
         customer.setFirstName("Customer-1");
         customer.setSurname("C-Surname-1");
-        customer.setPesel("12345678910");
+        customer.setPesel("55030101193");
 
         return customer;
     }
@@ -25,7 +25,7 @@ public class BodyToTestProvider {
 
         customerDto.setFirstName("Customer-1");
         customerDto.setSurname("C-Surname-1");
-        customerDto.setPesel("12345678910");
+        customerDto.setPesel("55030101193");
         customerDto.setCreditDto(prepareCreditDto());
 
         return customerDto;

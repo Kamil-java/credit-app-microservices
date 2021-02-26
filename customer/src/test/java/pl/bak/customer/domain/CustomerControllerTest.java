@@ -77,7 +77,7 @@ class CustomerControllerTest {
                 .andExpect(jsonPath("$.pesel").exists())
                 .andExpect(jsonPath("$.pesel").isNotEmpty())
                 .andExpect(jsonPath("$.pesel").isString())
-                .andExpect(jsonPath("$.pesel").value("12345678910"))
+                .andExpect(jsonPath("$.pesel").value("55030101193"))
                 .andDo(print())
                 .andDo(document("customer-save"));
 
@@ -135,7 +135,7 @@ class CustomerControllerTest {
                 .andExpect(jsonPath("$.[0].pesel").exists())
                 .andExpect(jsonPath("$.[0].pesel").isNotEmpty())
                 .andExpect(jsonPath("$.[0].pesel").isString())
-                .andExpect(jsonPath("$.[0].pesel").value("12345678910"))
+                .andExpect(jsonPath("$.[0].pesel").value("55030101193"))
                 .andDo(print())
                 .andDo(document("get-list-of-customer"));
 
