@@ -73,4 +73,4 @@ Customer -> GET - http://localhost:8080/product/all
 [Detailed documentation - get all customer](https://github.com/Kamil-java/credit-app-microservices/tree/master/product/documentation/endpoints/get-list-of-products)
 
 ## Strat up Docker container
-* All we have to do is list <b>docker-compose up --build</b> in the root directory of the whole project. The application will create the database itself and use the containers / or images created by us to create it.
+* All we have to do is open any cmd utility, then go to the project directory and call <b>docker-compose up --build</b>. The application will create the database itself and use ready-made containers / images that we have created to create it, and will also perform a full import of the things we need.
