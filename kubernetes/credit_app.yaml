@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: credit
+  name: credit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: credit
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: credit
+    spec:
+      containers:
+        - image: kamilspringjava/credit_app
+          name: credit-app
+          resources: {}
+status: {}

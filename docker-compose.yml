@@ -18,21 +18,27 @@ services:
     restart: always
   customer:
     container_name: SpringBoot_Customer
-    build: ./customer
+    build:
+      context: ./customer
+    image: kamilspringjava/customer_app
     ports:
     - 8081:8081
     depends_on:
       - db
   product:
     container_name: SpringBoot_Product
-    build: ./product
+    build:
+      context: ./product
+    image: kamilspringjava/product_app
     ports:
     - 8082:8082
     depends_on:
       - db
   credit:
     container_name: SpringBoot_Credit
-    build: ./credit
+    build:
+      context: ./credit
+    image: kamilspringjava/credit_app
     ports:
       - 8080:8080
     depends_on:
