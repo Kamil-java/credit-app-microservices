@@ -6,7 +6,7 @@
 * [Using Kubernetes](#using-kubernetes)
 
 ## General info
-the application consists of three smaller applications which makes it an application in a distributed structure.
+The application consists of three smaller applications which makes it an application in a distributed structure.
 The main unit is the Credit microservice which collects data from the user (in sequence: credit, customer, product) and
 transfers according to the name to subsequent applications (in sequence: Customer, Product) where the data is processed and then saved in the database.
 The application uses PostgreSQL as the database. Our API also offers to see all credits which are aggregated by credit.
@@ -39,7 +39,8 @@ Everything is managed by Kubernetes.
 [Full documentation](https://github.com/Kamil-java/credit-app-microservices/tree/master/credit/documentation/endpoints)
 
 ```
-Credit -> POST - http://localhost:8080/credit/create 
+Credit -> POST - http://localhost:8080/credit/create
+Required body. Please read documentation below
 ```
 [Detailed documentation - create credit](https://github.com/Kamil-java/credit-app-microservices/tree/master/credit/documentation/endpoints/create-credit)
 
@@ -58,6 +59,7 @@ Credit -> GET - http://localhost:8080/credit/all
 
 ```
 Customer -> POST - http://localhost:8080/customer/create 
+Required body. Please read documentation below
 ```
 [Detailed documentation - create customer](https://github.com/Kamil-java/credit-app-microservices/tree/master/customer/documentation/endpoints/customer-save)
 
@@ -72,6 +74,7 @@ Customer -> GET - http://localhost:8080/customer/all
 
 ```
 Customer -> POST - http://localhost:8080/product/create 
+Required body. Please read documentation below
 ```
 [Detailed documentation - create customer](https://github.com/Kamil-java/credit-app-microservices/tree/master/product/documentation/endpoints/create-product)
 
