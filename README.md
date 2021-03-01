@@ -2,7 +2,7 @@
 * [General info](#general-info)
 * [Technological Stack](#technological-stack)
 * [Endpoints](#endpoints)
-* [Strat up Docker container](#strat-up-docker-container)
+* [Strat up Docker container](#strat-up-docker-container-as-one-application)
 * [Using Kubernetes](#using-kubernetes)
 
 ## General info
@@ -12,6 +12,9 @@ transfers according to the name to subsequent applications (in sequence: Custome
 The application uses PostgreSQL as the database. Our API also offers to see all credits which are aggregated by credit.
 The application also uses Docker for the convenience of its launch, where our entire application runs in Docker containers.
 Everything is managed by Kubernetes.
+
+The application uses <b>actuator</b> to facilitate checking during startup.
+Endpoint documentation is available [here](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html).
 
 ## Technological Stack
 ### Back-End
