@@ -30,6 +30,10 @@ Endpoint documentation is available [here](https://docs.spring.io/spring-boot/do
 * Spring RestDocs
 ### Data Base
 * PostgreSQL
+  - USER = admin
+  - PASSWORD = password
+  - DATABASE = credit_app
+  - PORT = 5432
 ### Build Tools
 * Maven
 * Docker
