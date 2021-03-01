@@ -23,9 +23,11 @@ Endpoint documentation is available [here](https://docs.spring.io/spring-boot/do
 * Spring-Data-JPA
 * Spring-Web
 * ModelMapper
+* Actuator
 #### Tests
 * JUnit
 * Mockito
+* Spring RestDocs
 ### Data Base
 * PostgreSQL
 ### Build Tools
