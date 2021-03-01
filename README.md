@@ -74,6 +74,7 @@ Required body. Please read documentation below
 
 ```
 Customer -> GET - http://localhost:8080/customer/all 
+Required params. Please read documentation below
 ```
 [Detailed documentation - get all customer](https://github.com/Kamil-java/credit-app-microservices/tree/master/customer/documentation/endpoints/get-list-of-customer)
 
@@ -88,7 +89,8 @@ Required body. Please read documentation below
 [Detailed documentation - create customer](https://github.com/Kamil-java/credit-app-microservices/tree/master/product/documentation/endpoints/create-product)
 
 ```
-Customer -> GET - http://localhost:8080/product/all 
+Customer -> GET - http://localhost:8080/product/all
+Required params. Please read documentation below
 ```
 [Detailed documentation - get all customer](https://github.com/Kamil-java/credit-app-microservices/tree/master/product/documentation/endpoints/get-list-of-products)
 
