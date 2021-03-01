@@ -16,6 +16,8 @@ Everything is managed by Kubernetes.
 The application uses <b>actuator</b> to facilitate checking during startup.
 Endpoint documentation is available [here](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html).
 
+(The actuator only has default endpoints enabled. The other endpoints are disabled)
+
 ## Technological Stack
 ### Back-End
 * Java (11)
