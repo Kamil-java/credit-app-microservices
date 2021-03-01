@@ -97,6 +97,9 @@ Customer -> GET - http://localhost:8080/product/all
 
 * All we have to do is open any cmd utility, then go to the project directory and call <b>docker-compose build</b>. Docker will build an image for the given sites. You do not need to have Apache Maven installed, everything will be taken care of by docker. If, on the other hand, you want to use the application quickly and easily, you should plug in <b>docker-compose up --build</b>.
 
+* To run Docker without ROOT user, please follow the provided documentation which I attach [here](https://docs.docker.com/engine/install/linux-postinstall/).
+  - (I set similar assumptions in the Dockerfile in each of the modules, unfortunately I use Windows and I was forced to comment on the given lines).
+
 ## Using Kubernetes
 
 * Before you start
@@ -106,6 +109,8 @@ Customer -> GET - http://localhost:8080/product/all
   - You can also use a minikube tool which is also a great solution.
   - [Kubernetes Tutorial Minikube](https://minikube.sigs.k8s.io/docs/start/)
 * (Kubernetes uses remote repositories from the docker hub)
+* The solution from Kubernetes uses images posted on Docker Hub, we can also use local images.
+First, build docker images and then in yaml files representing (* _app) containers in the kubernetes directory set the dependency <b>imagePullPolicy: Never</b>. After that, kubernetes will start searching our local images instead of looking for images in the repository. (Command invocation procedures do not change).
 
 All you have to do is go to the main project directory and then call the command
 ```
