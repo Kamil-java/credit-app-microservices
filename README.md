@@ -123,7 +123,6 @@ Po wykonaniu powyższej komendy należy uruchomić nasze usługi na wybranych po
       * customer = 8081
       * credit = 8080
 ```
-kubectl port-forward svc/db 5432:5432
 kubectl port-forward svc/product 8082:8082
 kubectl port-forward svc/customer 8081:8081
 kubectl port-forward svc/credit 8080:8080
