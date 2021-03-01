@@ -64,10 +64,11 @@ class ProductServiceTest {
     @Test
     void shouldReturnAllProducts() {
         //given
-        given(productRepository.findAll()).willReturn(List.of(bodyToTestProvider.prepareProduct()));
+        List<Integer> creditId = List.of(1);
+        given(productRepository.findAllById(creditId)).willReturn(List.of(bodyToTestProvider.prepareProduct()));
 
         //when
-        List<ProductDto> allProducts = productService.getAll();
+        List<ProductDto> allProducts = productService.getAll(creditId);
 
         //then
         assertThat(allProducts)

@@ -83,11 +83,12 @@ class ProductControllerTest {
     @Test
     void shouldReturnSingletonListProductsDto() throws Exception {
         //given
-        given(productService.getAll()).willReturn(List.of(bodyToTestProvider.prepareProductDto()));
+        given(productService.getAll(List.of(1))).willReturn(List.of(bodyToTestProvider.prepareProductDto()));
 
         //when
         ResultActions perform = mockMvc.perform(get("/product/all")
                 .contentType(MediaType.APPLICATION_JSON)
+                .param("creditId", "1")
         );
 
         //then
@@ -117,10 +118,12 @@ class ProductControllerTest {
     @Test
     void shouldReturnHttpStatusNoContentIfListIsEmpty() throws Exception {
         //given
-        given(productService.getAll()).willReturn(Collections.emptyList());
+        given(productService.getAll(List.of(1))).willReturn(Collections.emptyList());
 
         //when
-        ResultActions perform = mockMvc.perform(get("/product/all"));
+        ResultActions perform = mockMvc.perform(get("/product/all")
+                .param("creditId", "1")
+        );
 
         //then
         perform

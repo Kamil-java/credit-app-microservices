@@ -78,10 +78,11 @@ class CustomerServiceTest {
     @Test
     void shouldReturnListOfCustomer() {
         //given
-        given(customerRepository.findAll()).willReturn(List.of(bodyToTestProvider.prepareCustomer()));
+        List<Integer> creditId = List.of(1);
+        given(customerRepository.findAllById(creditId)).willReturn(List.of(bodyToTestProvider.prepareCustomer()));
 
         //when
-        List<CustomerDto> customersDto = customerService.getAll();
+        List<CustomerDto> customersDto = customerService.getAll(creditId);
 
         //then
         assertThat(customersDto)

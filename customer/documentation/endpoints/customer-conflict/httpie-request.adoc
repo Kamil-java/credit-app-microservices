@@ -1,5 +1,5 @@
 [source,bash]
 ----
-$ echo '{"firstName":"Customer-1","surname":"C-Surname-1","pesel":"55030101193","creditDto":{"id":1,"creditName":"Credit-1"}}' | http POST 'http://localhost:8080/customer/create' \
+$ echo '{"id":1,"firstName":"Customer-1","surname":"C-Surname-1","pesel":"55030101193","creditDto":{"id":1,"creditName":"Credit-1"}}' | http POST 'http://localhost:8080/customer/create' \
     'Content-Type:application/json;charset=UTF-8'
 ----

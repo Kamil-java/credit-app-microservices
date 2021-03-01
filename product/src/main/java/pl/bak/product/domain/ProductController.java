@@ -27,8 +27,8 @@ public class ProductController {
     }
 
     @GetMapping("/all")
-    public List<ProductDto> getProducts() {
-        List<ProductDto> all = productService.getAll();
+    public List<ProductDto> getProducts(@RequestParam(name = "creditId") List<Integer> creditId) {
+        List<ProductDto> all = productService.getAll(creditId);
 
         if (all.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NO_CONTENT);

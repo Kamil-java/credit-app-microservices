@@ -108,11 +108,12 @@ class CustomerControllerTest {
     @Test
     void getCustomers() throws Exception {
         //given
-        given(customerService.getAll()).willReturn(List.of(bodyToTestProvider.prepareCustomerDto()));
+        given(customerService.getAll(List.of(1))).willReturn(List.of(bodyToTestProvider.prepareCustomerDto()));
 
         //when
         ResultActions perform = mockMvc.perform(get("/customer/all")
                 .contentType(MediaType.APPLICATION_JSON)
+                .param("creditId", "1")
         );
 
         //then
@@ -123,7 +124,9 @@ class CustomerControllerTest {
                 .andExpect(jsonPath("$").isArray())
                 .andExpect(jsonPath("$").isNotEmpty())
                 .andExpect(jsonPath("$.length()").value(1))
-                .andExpect(jsonPath("$.[0].id").doesNotExist())
+                .andExpect(jsonPath("$.[0].id").exists())
+                .andExpect(jsonPath("$.[0].id").isNumber())
+                .andExpect(jsonPath("$.[0].id").value(1))
                 .andExpect(jsonPath("$.[0].firstName").exists())
                 .andExpect(jsonPath("$.[0].firstName").isNotEmpty())
                 .andExpect(jsonPath("$.[0].firstName").isString())
@@ -144,10 +147,12 @@ class CustomerControllerTest {
     @Test
     void shouldReturnHttpStatusNoContentIfListIsEmpty() throws Exception {
         //given
-        given(customerService.getAll()).willReturn(Collections.emptyList());
+        given(customerService.getAll(List.of(1))).willReturn(Collections.emptyList());
 
         //when
-        ResultActions perform = mockMvc.perform(get("/customer/all"));
+        ResultActions perform = mockMvc.perform(get("/customer/all")
+                .param("creditId", "1")
+        );
 
         //then
         perform

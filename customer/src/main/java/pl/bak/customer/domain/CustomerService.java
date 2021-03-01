@@ -34,6 +34,7 @@ public class CustomerService {
         }
 
         Customer customer = modelMapper.map(customerDto, Customer.class);
+        customer.setId(null);
 
         creditRepository.findById(id)
                 .ifPresent(customer::setCredit);
@@ -43,8 +44,8 @@ public class CustomerService {
         return Optional.of(customer);
     }
 
-    public List<CustomerDto> getAll() {
-        List<Customer> customers = customerRepository.findAll();
+    public List<CustomerDto> getAll(List<Integer> creditId) {
+        List<Customer> customers = customerRepository.findAllById(creditId);
 
         return customers.stream()
                 .map(customer -> modelMapper.map(customer, CustomerDto.class))

@@ -37,8 +37,8 @@ public class ProductService {
         return modelMapper.map(save, ProductDto.class);
     }
 
-    public List<ProductDto> getAll(){
-        List<Product> products = productRepository.findAll();
+    public List<ProductDto> getAll(List<Integer> creditId){
+        List<Product> products = productRepository.findAllById(creditId);
 
         return products.stream()
                 .map(product -> modelMapper.map(product, ProductDto.class))

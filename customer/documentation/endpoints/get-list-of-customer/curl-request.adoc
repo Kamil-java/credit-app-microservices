@@ -1,5 +1,5 @@
 [source,bash]
 ----
-$ curl 'http://localhost:8080/customer/all' -i -X GET \
+$ curl 'http://localhost:8080/customer/all?creditId=1' -i -X GET \
     -H 'Content-Type: application/json;charset=UTF-8'
 ----

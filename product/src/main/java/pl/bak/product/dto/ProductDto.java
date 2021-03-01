@@ -48,11 +48,11 @@ public class ProductDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProductDto that = (ProductDto) o;
-        return value == that.value && Objects.equals(productName, that.productName) && Objects.equals(creditDto, that.creditDto);
+        return id == that.id && value == that.value && Objects.equals(productName, that.productName) && Objects.equals(creditDto, that.creditDto);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productName, value, creditDto);
+        return Objects.hash(id, productName, value, creditDto);
     }
 }

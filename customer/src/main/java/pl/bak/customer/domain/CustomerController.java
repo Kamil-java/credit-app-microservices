@@ -29,8 +29,8 @@ public class CustomerController {
     }
 
     @GetMapping("/all")
-    public List<CustomerDto> getCustomers(){
-        List<CustomerDto> all = customerService.getAll();
+    public List<CustomerDto> getCustomers(@RequestParam(name = "creditId") List<Integer> creditId){
+        List<CustomerDto> all = customerService.getAll(creditId);
 
         if (all.isEmpty()){
             throw new ResponseStatusException(HttpStatus.NO_CONTENT);

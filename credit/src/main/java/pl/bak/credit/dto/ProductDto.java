@@ -8,11 +8,21 @@ import java.util.Objects;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProductDto {
+    private int id;
+
     @NotBlank(message = "product must have name")
     private String productName;
 
     @Positive(message = "value must be positive")
     private int value;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     private CreditDto creditDto = new CreditDto();
 
@@ -46,11 +56,11 @@ public class ProductDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProductDto that = (ProductDto) o;
-        return value == that.value && Objects.equals(productName, that.productName) && Objects.equals(creditDto, that.creditDto);
+        return id == that.id && value == that.value && Objects.equals(productName, that.productName) && Objects.equals(creditDto, that.creditDto);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productName, value, creditDto);
+        return Objects.hash(id, productName, value, creditDto);
     }
 }

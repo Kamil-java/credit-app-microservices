@@ -23,6 +23,7 @@ public class BodyToTestProvider {
     public CustomerDto prepareCustomerDto(){
         CustomerDto customerDto = new CustomerDto();
 
+        customerDto.setId(1);
         customerDto.setFirstName("Customer-1");
         customerDto.setSurname("C-Surname-1");
         customerDto.setPesel("55030101193");

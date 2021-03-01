@@ -7,6 +7,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 import pl.bak.credit.app.body.test.BodyToTestProvider;
 import pl.bak.credit.domain.dao.CreditRepository;
 import pl.bak.credit.domain.uri.URLData;
@@ -18,6 +19,7 @@ import pl.bak.credit.model.Credit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -72,8 +74,8 @@ class CreditServiceTest {
         given(creditRepository.findAll()).willReturn(List.of(getCredit()));
 
         //when
-        when(restTemplate.getForObject(URLData.customerGetURL, CustomerDto[].class)).thenReturn(arrayCustomer());
-        when(restTemplate.getForObject(URLData.productGetURL, ProductDto[].class)).thenReturn(arrayProduct());
+        when(restTemplate.getForObject(getURL(URLData.customerGetURL), CustomerDto[].class)).thenReturn(arrayCustomer());
+        when(restTemplate.getForObject(getURL(URLData.productGetURL), ProductDto[].class)).thenReturn(arrayProduct());
         List<MainDto> all = creditService.getAll();
 
         //then
@@ -84,12 +86,22 @@ class CreditServiceTest {
                 .hasOnlyElementsOfType(MainDto.class);
         assertThat(all.get(0))
                 .isNotNull()
-                .hasNoNullFieldsOrProperties()
                 .hasFieldOrProperty("creditDto")
                 .hasFieldOrProperty("customerDto")
                 .hasFieldOrProperty("productDto");
 
 
+    }
+
+    private String getURL(String URL) {
+        List<Integer> id = creditRepository.findAll()
+                .stream()
+                .map(Credit::getId)
+                .collect(Collectors.toList());
+        return UriComponentsBuilder
+                .fromHttpUrl(URL)
+                .queryParam("creditId", id)
+                .toUriString();
     }
 
     private Credit getCredit() {

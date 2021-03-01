@@ -2,5 +2,5 @@
 ----
 $ curl 'http://localhost:8080/credit/create' -i -X POST \
     -H 'Content-Type: application/json;charset=UTF-8' \
-    -d '{"credit":{"id":1,"creditName":"Credit-1"},"customer":{"firstName":"Customer-1","surname":"C-Surname-1","pesel":"55030101193","creditDto":{"id":1,"creditName":"Credit-1"}},"product":{"productName":"Product-1","value":200,"creditDto":{"id":1,"creditName":"Credit-1"}}}'
+    -d '{"credit":{"id":1,"creditName":"Credit-1"},"customer":{"id":0,"firstName":"Customer-1","surname":"C-Surname-1","pesel":"55030101193","creditDto":{"id":1,"creditName":"Credit-1"}},"product":{"id":0,"productName":"Product-1","value":200,"creditDto":{"id":1,"creditName":"Credit-1"}}}'
 ----

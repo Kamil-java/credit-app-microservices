@@ -3,6 +3,7 @@ package pl.bak.credit.domain;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 import pl.bak.credit.domain.dao.CreditRepository;
 import pl.bak.credit.domain.uri.URLData;
 import pl.bak.credit.dto.CreditDto;
@@ -12,6 +13,7 @@ import pl.bak.credit.dto.ProductDto;
 import pl.bak.credit.model.Credit;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -50,40 +52,65 @@ public class CreditService {
     public List<MainDto> getAll() {
         List<Credit> credits = creditRepository.findAll();
 
-        String productURL = URLData.productGetURL;
-        ProductDto[] productDtos = restTemplate.getForObject(productURL, ProductDto[].class);
+        if (credits.isEmpty()) {
+            return Collections.emptyList();
+        }
 
-        String customerURL = URLData.customerGetURL;
-        CustomerDto[] customerDtos = restTemplate.getForObject(customerURL, CustomerDto[].class);
+        List<Integer> id = credits.stream()
+                .map(Credit::getId)
+                .collect(Collectors.toList());
 
-        if (!(customerDtos == null || productDtos == null)) {
-            List<CustomerDto> customers = Arrays.asList(customerDtos);
-            List<ProductDto> products = Arrays.asList(productDtos);
+        String productURL = uriWithParam(URLData.productGetURL, id);
 
+        ProductDto[] resultProducts = restTemplate.getForObject(productURL, ProductDto[].class);
+
+        String customerURL = uriWithParam(URLData.customerGetURL, id);
+
+        CustomerDto[] ResultCustomers = restTemplate.getForObject(customerURL, CustomerDto[].class);
+
+        if (!(ResultCustomers == null || resultProducts == null)) {
+            List<CustomerDto> customers = Arrays.asList(ResultCustomers);
+            List<ProductDto> products = Arrays.asList(resultProducts);
             List<MainDto> mainDtos = new ArrayList<>();
 
-            credits.forEach(credit -> {
-                MainDto mainDto = new MainDto();
-
-                mainDto.setCreditDto(modelMapper.map(credit, CreditDto.class));
-
-                customers.forEach(customerDto -> {
-                    customerDto.setCreditDto(null);
-                    mainDto.setCustomerDto(customerDto);
-                });
-
-                products.forEach(productDto -> {
-                    productDto.setCreditDto(null);
-                    mainDto.setProductDto(productDto);
-                });
-
-                mainDtos.add(mainDto);
-            });
-
+            credits.forEach(credit -> mainDtos.add(extractedByIdAndMapToMainDto(customers, products, credit)));
 
             return mainDtos;
         }
         return Collections.emptyList();
+    }
+
+    private MainDto extractedByIdAndMapToMainDto(List<CustomerDto> customers,
+                                                 List<ProductDto> products, Credit credit) {
+        MainDto mainDto = new MainDto();
+        Integer id = credit.getId();
+
+        mainDto.setCreditDto(modelMapper.map(credit, CreditDto.class));
+
+        customers
+                .stream()
+                .filter(customerDto -> customerDto.getId() == id)
+                .forEach(customerDto -> {
+                    customerDto.setCreditDto(null);
+                    mainDto.setCustomerDto(customerDto);
+                });
+
+        products
+                .stream()
+                .filter(productDto -> productDto.getId() == id)
+                .forEach(productDto -> {
+                    productDto.setCreditDto(null);
+                    mainDto.setProductDto(productDto);
+                });
+
+        return mainDto;
+    }
+
+    private String uriWithParam(String url, List<Integer> id) {
+        return UriComponentsBuilder
+                .fromHttpUrl(url)
+                .queryParam("creditId", id)
+                .toUriString();
     }
 
 }
